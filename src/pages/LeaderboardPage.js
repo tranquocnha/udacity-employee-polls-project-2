@@ -5,7 +5,7 @@ const LeaderboardPage = ({ users }) => {
     <div>
       <h1 className="text-3xl font-bold mt-9">Leaderboard</h1>
       <table className="table">
-        <thead  className="thead-dark">
+        <thead className="thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">User name</th>
@@ -16,7 +16,9 @@ const LeaderboardPage = ({ users }) => {
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <th scope="row">{<img src={user.avatarURL} className="avatar" alt="avatar" />}</th>
+              <th scope="row">
+                {<img src={user.avatarURL} className="avatar" alt="avatar" />}
+              </th>
               <td>{user.name}</td>
               <td>{Object.keys(user.answers).length}</td>
               <td>{user.questions.length}</td>
@@ -29,9 +31,11 @@ const LeaderboardPage = ({ users }) => {
 };
 
 const mapStateToProps = ({ users }) => ({
-  users: Object.values(users).sort(
-    (a, b) => Object.keys(b.answers).length - Object.keys(a.answers).length
-  ),
+  users: Object.values(users).sort((a, b) => {
+    const aNumAnswers = Object.keys(a.answers).length;
+    const bNumAnswers = Object.keys(b.answers).length;
+    return bNumAnswers - aNumAnswers;
+  }),
 });
 
 export default connect(mapStateToProps)(LeaderboardPage);

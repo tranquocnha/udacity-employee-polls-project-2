@@ -5,8 +5,8 @@ import employee from "../images/employee_surveys.jpg";
 import { handleLogin } from "../store/actions/authedUser";
 
 const Login = ({ dispatch, loggedIn }) => {
-  const [username, setUsername] = useState("tylermcginnis");
-  const [password, setPassword] = useState("abc321");
+  const [username, setUsername] = useState("sarahedo");
+  const [password, setPassword] = useState("password123");
 
   if (loggedIn) {
     const urlParams = new URLSearchParams(window.location.search);

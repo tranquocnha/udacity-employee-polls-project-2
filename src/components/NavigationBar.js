@@ -13,7 +13,9 @@ const NavigationBar = ({ dispatch, authedUserId }) => {
       <div className="container-fluid row">
         <div className="col-10">
           {authedUserId && (
-            <label id="user-information">User: {authedUserId}</label>
+            <label style={{ color: "#007bff" }} id="user-information">
+              User: {authedUserId}
+            </label>
           )}
           {!authedUserId ? (
             <Link
@@ -65,7 +67,10 @@ const NavigationBar = ({ dispatch, authedUserId }) => {
           )}
         </div>
       </div>
-      <div className="collapse navbar-collapse col-2" id="navbarSupportedContent">
+      <div
+        className="collapse navbar-collapse col-2"
+        id="navbarSupportedContent"
+      >
         <form className="d-flex float-right">
           <button onClick={logout} className="btn btn-outline-success">
             Logout
